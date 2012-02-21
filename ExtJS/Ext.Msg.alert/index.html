@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
-    <title></title>
+    <title>Displaying a simple alert message using the Ext.Msg class</title>
+    <!-- http://senchaexamples.com/2012/02/21/displaying-a-simple-alert-message-using-the-ext-msg-class/ -->
 </head>
 <body>
     
     <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
     <script type="text/javascript">
-        Ext.onReady(function() {
+        Ext.onReady(function () {
             var numClicks = 0;
             Ext.create('Ext.Button', {
                 text: 'Click to relaunch alert',
-                handler: function() {
+                handler: function () {
                     Ext.Msg.alert('Status title', 'Alert was relaunched ' + (++numClicks) + " times.");
-                }, // listeners
+                },
                 renderTo: Ext.getBody()
             }); // create()
             Ext.Msg.alert('Status title', 'I am an Ext.Msg.alert()');
