@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
-    <title>Ext.Array.clean() Example</title>
+    <title>Removing empty elements from an array using the Ext.Array class</title>
+    <!-- http://senchaexamples.com/2012/02/21/removing-empty-elements-from-an-array-using-the-ext-array-class/ -->
 </head>
 <body>
     
@@ -12,15 +13,16 @@
         Ext.application({
             name: 'Ext.Array.clean()',
             launch: function() {
-                /* Create two arrays. The 'dirty' array contains empty items. The 'clean' array filters empty items using the static Ext.Array.clean() method. */
+                /* Create two arrays. The 'dirty' array contains empty items.
+                   The 'clean' array filters empty items using the static 
+                   Ext.Array.clean() method. */
                 var dirty = [1,2,,,4,5,6,7,,,11],
                     clean = Ext.Array.clean(dirty);
                 
                 /* Create a panel to display the output. */
                 Ext.create('Ext.Panel', {
                     id: 'pan',
-                    title: 'Ext.Array.clean() Example',
-                    // width: '100%',
+                    title: 'Ext.Array.clean() example',
                     height: 200,
                     bodyPadding: 10,
                     padding: 20,
