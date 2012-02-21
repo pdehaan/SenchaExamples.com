@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
-    <title>Creating a simple MessageBox in Ext JS</title>
+    <title>Changing the icon in a dialog box using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/21/changing-the-icon-in-a-dialog-box-using-ext-js/ -->
 </head>
 <body>
     
@@ -17,14 +18,14 @@
                         title: 'Ext.Msg.setIcon() example',
                         msg: 'This example will change the displayed icon after 3 seconds.',
                         icon: Ext.Msg.INFO
-                    });
-                    setTimeout(function (ico) {
-                        msg.setIcon(ico);
-                    }, 3000, Ext.Msg.ERROR);
+                    }); // show()
+                    setTimeout(function (target, ico) {
+                        target.setIcon(ico);
+                    }, 3000, msg, Ext.Msg.ERROR);
                 },
                 renderTo: Ext.getBody()
-            });
-        });
+            }); // create()
+        }); // onReady()
     </script>
     
 </body>
