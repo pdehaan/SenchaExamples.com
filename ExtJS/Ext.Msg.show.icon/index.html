@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the icon on a MessageBox in Ext JS</title>
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Panel', {
+                tbar: [{
+                    xtype: 'button',
+                    text: 'Ext.Msg.ERROR',
+                    handler: function () {
+                        showMessage('ERROR');
+                    }
+                }, {
+                    xtype: 'button',
+                    text: 'Ext.Msg.INFO',
+                    handler: function () {
+                        showMessage('INFO')
+                    }
+                }, {
+                    xtype: 'button',
+                    text: 'Ext.Msg.QUESTION',
+                    handler: function () {
+                        showMessage('QUESTION')
+                    }
+                }, {
+                    xtype: 'button',
+                    text: 'Ext.Msg.WARNING',
+                    handler: function () {
+                        showMessage('WARNING')
+                    }
+                }],
+                renderTo: Ext.getBody()
+            });
+        });
+        
+        function showMessage(ico) {
+            Ext.Msg.show({
+                title: 'Ext.window.MessageBox icon example',
+                msg: '<code>icon: Ext.Msg.' + ico + '</code>',
+                icon: Ext.Msg[ico]
+            });
+        }
+    </script>
+    
+</body>
+</html>

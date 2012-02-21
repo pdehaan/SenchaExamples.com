@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Creating a simple MessageBox in Ext JS</title>
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                text: 'Click to launch MessageBox',
+                handler: function () {
+                    var msg = Ext.Msg.show({
+                        title: 'Ext.Msg.setIcon() example',
+                        msg: 'This example will change the displayed icon after 3 seconds.',
+                        icon: Ext.Msg.INFO
+                    });
+                    setTimeout(function (ico) {
+                        msg.setIcon(ico);
+                    }, 3000, Ext.Msg.ERROR);
+                },
+                renderTo: Ext.getBody()
+            });
+        });
+    </script>
+    
+</body>
+</html>

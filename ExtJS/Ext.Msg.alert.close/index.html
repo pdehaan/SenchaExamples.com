@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Creating a self closing alert in Ext JS</title>
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function() {
+            Ext.create('Ext.Button', {
+                text:'Click to launch alert',
+                handler:function (lbl) {
+                    var alrt = Ext.Msg.alert("Self closing alert", "This alert will close in 3 seconds");
+                    setTimeout(function (tgt) {
+                        if (!tgt.hidden) {
+                            console.log("closing alert");
+                            tgt.close();
+                        } else {
+                            console.log("already closed");
+                        }
+                    }, 3000, alrt);
+                },
+                renderTo:Ext.getBody()
+            });
+        });
+    </script>
+    
+</body>
+</html>
