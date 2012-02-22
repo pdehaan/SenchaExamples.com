@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the size of an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/setting-the-size-of-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var btn = Ext.create('Ext.Button', {
+                text: 'I am an Ext.Button',
+                width: 150 // px
+            }); // create()
+            
+            Ext.create('Ext.Panel', {
+                padding: 20,
+                bodyPadding: 10,
+                height: 150,
+                tbar: [{
+                    xtype: 'button',
+                    text: 'small (default)',
+                    handler: function () {
+                        btn.setScale('small');
+                        btn.setText('btn.scale = ' + btn.scale);
+                    } // handler
+                }, {
+                    xtype: 'button',
+                    text: 'medium',
+                    handler: function () {
+                        btn.setScale('medium');
+                        btn.setText('btn.scale = ' + btn.scale);
+                    } // handler
+                }, {
+                    xtype: 'button',
+                    text: 'large',
+                    handler: function () {
+                        btn.setScale('large');
+                        btn.setText('btn.scale = ' + btn.scale);
+                    } // handler
+                }],
+                items: [btn],
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>

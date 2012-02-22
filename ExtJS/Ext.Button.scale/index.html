@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the size of an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/setting-the-size-of-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Container', {
+                padding: 20,
+                items: [
+                    Ext.create('Ext.Button', {
+                        text: 'small (default)',
+                        scale: 'small'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: 'medium',
+                        scale: 'medium'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: 'large',
+                        scale: 'large'
+                    }) // create()
+                ],
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
