@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Displaying an icon on a Ext.Button control using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/21/displaying-an-icon-on-a-ext-button-control-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.application({
+            name: 'Ext.Array.clean()',
+            launch: function () {
+                Ext.create('Ext.Button', {
+                    text: 'I\'m a button!',
+                    icon: '/favicon.ico',
+                    renderTo: Ext.getBody(),
+                });
+            } // launch
+        }); // Ext.application()
+    </script>
+    
+</body>
+</html>
