@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <style type="text/css">
+        .x-customOverStyle {
+            background-color: rgba(0, 255, 0, 0.2);
+            background-image: none;
+            border-color: green;
+        }
+        .x-customPressedStyle {
+            background-color: rgba(255, 0, 0, 0.2);
+            background-image: none;
+            border-color:  red;
+        }
+    </style>
+    <title>Specifying custom hover and pressed styles on an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/specifying-custom-hover-and-pressed-styles-on-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                text: '<code>enableToggle: true</code>',
+                enableToggle: true,
+                overCls: 'customOverStyle',
+                pressedCls: 'customPressedStyle',
+                handler: function (obj) {
+                    obj.setText('<code>pressed: ' + obj.pressed + '</code>');
+                }, // handler
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
