@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title></title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                text: 'Click to launch dialog',
+                handler: function () {
+                    Ext.Msg.show({
+                        title: 'Status title',
+                        msg: 'Click a button below to dismiss the dialog',
+                        buttons: Ext.Msg.YESNOCANCEL,
+                        closable: false,
+                        fn: function (btn) {
+                            Ext.Msg.alert('', 'You clicked the <code>' + btn + '</code> button.');
+                            switch (btn) {
+                                case "yes":
+                                    // something
+                                    break;
+                                case "no":
+                                    // something
+                                    break;
+                                case "cancel":
+                                    // something
+                                    break;
+                                default:
+                                    // something else
+                                    break;
+                            } // switch
+                        } // fn
+                    }); // show()
+                },
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
