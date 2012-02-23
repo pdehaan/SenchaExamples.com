@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Loading a new page when a user clicks an Ext.Button component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/loading-a-new-page-when-a-user-clicks-an-ext-button-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                href: 'http://sencha.com/',
+                renderTo: Ext.getBody(),
+                target: '_top',
+                text: 'Go to Sencha.com (<code>target=\'_top\'</code>)'
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
