@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Disabling an Ext.Button component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/disabling-an-ext-button-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var btn = Ext.create('Ext.Button', {
+                disabled: true,
+                handler: function () {
+                    Ext.Msg.alert('', 'You clicked the button.');
+                }, // handler
+                text: 'Button'
+            }); // create()
+            
+            Ext.create('Ext.Panel', {
+                bodyPadding: 20,
+                items: [btn],
+                renderTo: Ext.getBody(),
+                tbar: [{
+                    xtype: 'checkbox',
+                    boxLabel: 'disabled',
+                    checked: btn.disabled,
+                    handler: function () {
+                        btn.setDisabled(this.checked);
+                    } // handler
+                }] // tbar
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
