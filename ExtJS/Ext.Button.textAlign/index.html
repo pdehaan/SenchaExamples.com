@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the text label alignment on an Ext.Button component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/setting-the-text-label-alignment-on-an-ext-button-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Container', {
+                id:'container',
+                items: [
+                    Ext.create('Ext.Button', {
+                        text: '<code>textAlign: left</code>',
+                        textAlign: 'left',
+                        width: 240,
+                        height: 50,
+                        style: 'margin: 5px'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: '<code>textAlign: center</code> (default)',
+                        textAlign: 'center',
+                        width: 240,
+                        height: 50
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: '<code>textAlign: right</code>',
+                        textAlign: 'right',
+                        width: 240,
+                        height: 50,
+                        style: 'margin: 5px'
+                    }) // create()
+                ], // items
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
