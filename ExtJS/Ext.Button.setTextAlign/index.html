@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the text label alignment on an Ext.Button component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/setting-the-text-label-alignment-on-an-ext-button-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var btn = Ext.create('Ext.Button', {
+                text: 'Button',
+                width: 240,
+                height: 50
+            }); // create()
+            
+            Ext.create('Ext.Panel', {
+                bodyPadding: 10,
+                items: [
+                    btn
+                ], // items
+                tbar: [{
+                    xtype: 'buttongroup',
+                    title: 'textAlign',
+                    items: [{
+                        text: 'left',
+                        handler: function () {
+                            btn.setTextAlign('left');
+                        } // handler
+                    }, {
+                        text: 'center',
+                        handler: function () {
+                            btn.setTextAlign('center');
+                        } // handler
+                    }, {
+                        text: 'right',
+                        handler: function () {
+                            btn.setTextAlign('right');
+                        } // handler
+                    }] // items
+                }], // tbar
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
