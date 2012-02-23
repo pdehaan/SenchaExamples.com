@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Preventing an Ext.Button component from being depressed in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/preventing-an-ext-button-component-from-being-depressed-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var ch = Ext.create('Ext.form.field.Checkbox', {
+                boxLabel: 'allowDepress',
+                handler: function () {
+                    btn.allowDepress = this.checked;
+                    btn.setText('<code>allowDepress: ' + btn.allowDepress + '</code>');
+                } // handler
+            }); // create()
+            
+            var toggleBtn = Ext.create('Ext.Button', {
+                handler: function () {
+                    btn.toggle();
+                },
+                // handler
+                text: 'toggle()'
+            }); // create()
+            
+            var btn = Ext.create('Ext.Button', {
+                allowDepress: ch.checked,
+                enableToggle: true,
+                text: '<code>allowDepress: ' + ch.checked + '</code>'
+            }); // create()
+            
+            Ext.create('Ext.Panel', {
+                bodyPadding: 20,
+                items: [btn],
+                renderTo: Ext.getBody(),
+                tbar: [
+                    ch,
+                    toggleBtn
+                ], // tbar
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
