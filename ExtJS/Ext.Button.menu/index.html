@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding a submenu to an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/adding-a-submenu-to-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+       Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                menu: [
+                    {
+                        text: 'Ext JS 4',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Ext JS 3',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Sencha Touch 2',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Sencha Touch 1',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Touch Charts',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Sencha Animator',
+                        handler: handleMenuClick
+                    }, {
+                        text: 'Sencha.io',
+                        handler: handleMenuClick
+                    }
+                ], // menu
+                renderTo: Ext.getBody(),
+                text: 'Menu Button'
+            });
+            
+            function handleMenuClick(obj, evt) {
+                Ext.Msg.alert('Menu Item clicked', obj.text);
+            }
+        });
+    </script>
+    
+</body>
+</html>
