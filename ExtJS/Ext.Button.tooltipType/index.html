@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding tooltips to an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/adding-tooltips-to-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.tip.QuickTipManager.init();
+            
+            Ext.create('Ext.Panel', {
+                bodyPadding: 20,
+                items: [
+                    Ext.create('Ext.Button', {
+                        text: 'Button w/ QuickTip (qtip) tooltip',
+                        tooltip: 'I\'m a QuickTip tooltip with a default <code>tooltipType</code> (qtip)'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: 'Button w/ QuickTip tooltip',
+                        tooltip: 'I\'m a QuickTip tooltip with an explicit <code>tooltipType: qtip</code>',
+                        tooltipType: 'qtip'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        text: 'Button w/ title tooltip',
+                        tooltip: 'I\'m a title tooltip with an explicit `tooltipType: title`',
+                        tooltipType: 'title'
+                    }) // create()
+                ], // items
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
