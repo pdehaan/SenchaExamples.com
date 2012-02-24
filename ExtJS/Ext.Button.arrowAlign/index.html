@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Setting the menu arrow alignment on an Ext.Button component using Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/setting-the-menu-arrow-alignment-on-an-ext-button-component-using-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Container', {
+                items:[
+                    Ext.create('Ext.Button', {
+                        arrowAlign: 'right',
+                        menu: [
+                            {text: 'A wild submenu appears.'},
+                            {text: 'It\'s super effective!'}
+                        ], // menu
+                        text: '<code>arrowAlign: right</code>'
+                    }), // create()
+                    
+                    Ext.create('Ext.Button', {
+                        arrowAlign: 'bottom',
+                        menu: [
+                            {text: 'A wild submenu appears.'},
+                            {text: 'It\'s super effective!'}
+                        ], // menu
+                        text: '<code>arrowAlign: bottom</code>'
+                    }) // create()
+                ], // items
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
