@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding docked toolbars to an Ext.Panel container in Ext JS</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Panel', {
+                height: 150,
+                title: 'Ext.Panel title',
+                renderTo: Ext.getBody(),
+                tbar: [{
+                    xtype: 'label',
+                    html: "Ext.Panel top bar"
+                }], // tbar
+                bbar: [{
+                    xtype: 'label',
+                    html: 'Ext.Panel bottom bar'
+                }], // bbar
+                lbar: [{
+                    xtype: 'label',
+                    html: 'Ext.Panel left bar'
+                }], // lbar
+                rbar: [{
+                    xtype: 'label',
+                    html: 'Ext.Panel right bar'
+                }] // rbar
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
