@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding a loading mask to an Ext.panel.Panel container in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/24/adding-a-loading-mask-to-an-ext-panel-panel-container-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var pnl = Ext.create('Ext.Panel', {
+                height: 150,
+                renderTo: Ext.getBody(),
+                tbar: [{
+                    text:"Panel setLoading()",
+                    handler: function () {
+                        pnl.setLoading();
+                        // Clear the loading mask after 3 seconds
+                        setTimeout(function (target) {
+                            target.setLoading(false);
+                        }, 3000, pnl); // setTimeout()
+                    } // handler
+                }] // tbar
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
