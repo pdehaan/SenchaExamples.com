@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Creating a group of toggled Ext.Button components in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/23/creating-a-group-of-toggled-ext-button-components-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Container', {
+                items: [
+                    {
+                        xtype: 'label',
+                        text: 'Rating: '
+                    }, {
+                        xtype: 'button',
+                        enableToggle: true,
+                        text: '1',
+                        toggleGroup: 'ratings'
+                    }, {
+                        xtype: 'button',
+                        enableToggle: true,
+                        text: '2',
+                        toggleGroup: 'ratings'
+                    }, {
+                        xtype: 'button',
+                        enableToggle: true,
+                        text: '3',
+                        toggleGroup: 'ratings'
+                    }, {
+                        xtype: 'button',
+                        enableToggle: true,
+                        text: '4',
+                        toggleGroup: 'ratings'
+                    }, {
+                        xtype: 'button',
+                        enableToggle: true,
+                        text: '5',
+                        toggleGroup: 'ratings'
+                    }
+                ], // items
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
