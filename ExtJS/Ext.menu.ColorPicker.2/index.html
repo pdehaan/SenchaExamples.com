@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding a colorpicker control to an Ext.menu.Menu component in Ext JS</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            var btn = Ext.create('Ext.Button', {
+                menu: [{
+                    text: 'background-color',
+                    menu: {
+                        xtype: 'colormenu',
+                        value: '000000',
+                        handler: function (obj, rgb) {
+                            Ext.Msg.alert('background-color: ' + rgb.toString());
+                        } // handler
+                    } // menu
+                }, {
+                    text: 'border-color',
+                    menu: {
+                        xtype: 'colormenu',
+                        value: '000000',
+                        handler: function (obj, rgb) {
+                            Ext.Msg.alert('border-color: ' + rgb.toString());
+                        } // handler
+                    } // menu
+                }], // menu
+                renderTo: Ext.getBody(),
+                text: 'Menu Button'
+            }).showMenu();
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
