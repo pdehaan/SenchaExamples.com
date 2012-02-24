@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Adding a checkbox control to an Ext.menu.Menu component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/24/adding-a-checkbox-control-to-an-ext-menu-menu-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                menu: [
+                    {
+                        text: 'Ext JS 4',
+                        xtype: 'menucheckitem',
+                    }, {
+                        text: 'Ext JS 3',
+                        xtype: 'menucheckitem'
+                    }, {
+                        text: 'Sencha Touch 2',
+                        xtype: 'menucheckitem'
+                    }, {
+                        text: 'Sencha Touch 1',
+                        xtype: 'menucheckitem'
+                    }, {
+                        xtype: 'menuseparator'
+                    }, {
+                        text: 'Sencha.io'
+                    }
+                ], // menu
+                renderTo: Ext.getBody(),
+                text: 'Menu Button'
+            }).showMenu();
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
