@@ -4,4 +4,4 @@ The following example shows how you can automatically close an Ext.menu.Menu com
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/24/closing-an-ext-menu-menu-component-when-the-user-toggles-a-menu-checkbox-item-in-ext-js/).
