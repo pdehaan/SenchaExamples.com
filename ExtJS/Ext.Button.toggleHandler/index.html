@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Creating a simple toggle Ext.Button component in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/22/creating-a-simple-toggle-ext-button-component-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                enableToggle: true,
+                text: 'Sencha',
+                toggleHandler: function (button, state) {
+                    Ext.Msg.alert('', button.text + ' button is toggled? <code>' + state.toString() + '</code>');
+                }, // toggleHandler
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
