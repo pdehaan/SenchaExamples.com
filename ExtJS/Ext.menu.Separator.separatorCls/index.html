@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <style type="text/css">
+        .customMenuSeparator {
+            border-top: 1px dotted #f00;
+            height: 1px;
+        }
+    </style>
+    <title></title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                menu: [
+                    {
+                        text: 'Ext JS 4'
+                    }, {
+                        text: 'Ext JS 3'
+                    }, {
+                        xtype: 'menuseparator' // default separator
+                    }, {
+                        text: 'Sencha Touch 2'
+                    }, {
+                        text: 'Sencha Touch 1'
+                    }, {
+                        xtype: 'menuseparator', separatorCls: 'customMenuSeparator'
+                    }, {
+                        text: '^^ custom menu separator class ^^'
+                    }
+                ],
+                renderTo: Ext.getBody(),
+                text: 'Menu Button'
+            }).showMenu();
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
