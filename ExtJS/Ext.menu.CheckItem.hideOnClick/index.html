@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Closing an Ext.menu.Menu component when the user toggles a menu checkbox item in Ext JS</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.Button', {
+                menu: [
+                    {
+                        text: 'Ext JS 4',
+                        xtype: 'menucheckitem',
+                        hideOnClick: true,
+                        handler: function (item, evt) {
+                            Ext.Msg.alert(item.text + ' is checked?', item.checked.toString());
+                        }
+                    }, {
+                        text: 'Ext JS 3',
+                        xtype: 'menucheckitem',
+                        hideOnClick: true,
+                        handler: function (item, evt) {
+                            Ext.Msg.alert(item.text + ' is checked?', item.checked.toString());
+                        }
+                    }, {
+                        xtype: 'menuseparator'
+                    }, {
+                        text: 'Sencha Touch 2',
+                        xtype: 'menucheckitem'
+                    }, {
+                        text: 'Sencha Touch 1',
+                        xtype: 'menucheckitem'
+                    }
+                ], // menu
+                renderTo: Ext.getBody(),
+                text: 'Menu Button'
+            }).showMenu();
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
