@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
-    <title>Determining the SDK version number using Ext JS</title>
+    <title>Determining the application Ext JS framework version number using Ext JS</title>
     <!--  -->
 </head>
 <body>
@@ -11,8 +11,7 @@
     <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
     <script type="text/javascript">
         Ext.onReady(function () {
-            var vers = Ext.getVersion('extjs').version;
-            Ext.Msg.show({title: 'Built using Sencha Ext JS ' + vers,
+            Ext.Msg.show({title: 'Built using Sencha Ext JS ' + Ext.getVersion('extjs'),
                 closable: false});
         });
     </script>
