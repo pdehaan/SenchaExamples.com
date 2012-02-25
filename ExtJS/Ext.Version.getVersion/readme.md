@@ -4,4 +4,4 @@ The following example shows how you can determine which version of the Ext JS fr
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/24/determining-the-application-ext-js-framework-version-number-using-ext-js/).
