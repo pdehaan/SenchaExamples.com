@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Removing the tab bar background fill on an Ext.TabPanel container in Ext JS</title>
+    <!-- http://senchaexamples.com/2012/02/24/removing-the-tab-bar-background-fill-on-an-ext-tabpanel-container-in-ext-js/ -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.TabPanel', {
+                plain: true,
+                items: [{
+                    title: '<code>plain: true</code>',
+                    html: 'The quick brown fox jumps over the lazy dog'
+                }], // items
+                height: 100,
+                padding: 10,
+                renderTo: Ext.getBody()
+            }); // create()
+            
+            Ext.create('Ext.TabPanel', {
+                plain: false,
+                items: [{
+                    title: '<code>plain: false</code>',
+                    html: 'The quick brown fox jumps over the lazy dog'
+                }], // items
+                height: 100,
+                padding: 10,
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
