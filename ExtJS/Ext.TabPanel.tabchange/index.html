@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="http://cdn.sencha.io/ext-4.0.7-gpl/resources/css/ext-all.css"/>
+    <title>Determining when the user changes the active tab in an Ext.TabPanel container in Ext JS</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script type="text/javascript" src="http://cdn.sencha.io/ext-4.0.7-gpl/ext-all.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            Ext.create('Ext.TabPanel', {
+                listeners: {
+                    tabchange: function(panel, newTab, oldTab) {
+                        Ext.getCmp('activeTabLbl').setText(newTab.title);
+                    } // tabchange
+                }, // listeners
+                items: [{
+                    title: 'Ext JS',
+                    html: 'A bunch of Ext JS examples'
+                }, {
+                    title: 'Sencha Touch',
+                    html: 'A bunch of Sencha Touch examples'
+                }, {
+                    title: 'Ext Designer',
+                    html: 'A bunch of Ext Designer examples'
+                }, {
+                    title: 'Sencha Animator',
+                    html: 'A bunch of Sencha Animator examples'
+                }, {
+                    title: 'Sencha.io',
+                    html: 'A bunch of Sencha.io examples'
+                }], // items
+                bbar: [
+                    {html:'Selected tab:', xtype:'label'},
+                    {id:'activeTabLbl', xtype:'label', style:'font-weight:bold;'}
+                ], // bbar
+                height: 100,
+                renderTo: Ext.getBody()
+            }); // create()
+        }); // onReady()
+    </script>
+    
+</body>
+</html>
