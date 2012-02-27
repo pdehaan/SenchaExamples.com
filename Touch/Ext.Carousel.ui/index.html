@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="../cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the UI theme on the Ext.Carousel component in Sencha Touch 2</title>
+    <!-- http://senchaexamples.com/2012/02/27/setting-the-indicator-ui-theme-on-the-ext-carousel-component-in-sencha-touch-2/ -->
+</head>
+<body>
+    
+    <script src="../cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var darkUI = Ext.create('Ext.Carousel', {
+                    defaults: {
+                        styleHtmlContent: true
+                    }, // defaults
+                    ui: 'dark',
+                    width: '100%',
+                    height: 100,
+                    items: [
+                        {
+                            html: 'red (ui:dark)',
+                            style: 'background-color:#f00;'
+                        }, {
+                            html: 'orange (ui:dark)',
+                            style: 'background-color:#ffb600;'
+                        }, {
+                            html: 'yellow (ui:dark)',
+                            style: 'background-color:#ff0;'
+                        }, {
+                            html: 'green (ui:dark)',
+                            style: 'background-color:#80ff4d;'
+                        }, {
+                            html: 'blue (ui:dark)',
+                            style: 'background-color:#009dff;'
+                        }
+                    ] // items
+                }); // create()
+                
+                var lightUI = Ext.create('Ext.Carousel', {
+                    defaults: {
+                        styleHtmlContent: true
+                    }, // defaults
+                    ui: 'light',
+                    width: '100%',
+                    height: 100,
+                    items: [
+                        {
+                            html: 'red (ui:light)',
+                            style: 'background-color:#f00;'
+                        }, {
+                            html: 'orange (ui:light)',
+                            style: 'background-color:#ffb600;'
+                        }, {
+                            html: 'yellow (ui:light)',
+                            style: 'background-color:#ff0;'
+                        }, {
+                            html: 'green (ui:light)',
+                            style: 'background-color:#80ff4d;'
+                        }, {
+                            html: 'blue (ui:light)',
+                            style: 'background-color:#009dff;'
+                        }
+                    ] // items
+                }); // create()
+                
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [
+                        darkUI, 
+                        lightUI
+                    ] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
