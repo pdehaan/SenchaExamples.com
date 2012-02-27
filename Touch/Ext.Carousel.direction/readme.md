@@ -4,4 +4,4 @@ The following example shows how you can create a vertically scrolling Ext.Carous
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/27/creating-a-vertically-scrolling-ext-carousel-component-in-sencha-touch-2/).
