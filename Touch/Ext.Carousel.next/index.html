@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="../cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Programmatically changing the active item on an Ext.Carousel component in Sencha Touch 2</title>
+    <!-- http://senchaexamples.com/2012/02/27/programmatically-changing-the-active-item-on-an-ext-carousel-component-in-sencha-touch-2/ -->
+</head>
+<body>
+    
+    <script src="../cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var crsl = Ext.create('Ext.Carousel', {
+                    defaults: {
+                        styleHtmlContent: true
+                    }, // defaults
+                    fullscreen: true,
+                    items: [
+                        {
+                            html: 'red',
+                            style: 'background-color:#f00;'
+                        }, {
+                            html: 'orange',
+                            style: 'background-color:#ffb600;'
+                        }, {
+                            html: 'yellow',
+                            style: 'background-color:#ff0;'
+                        }, {
+                            html: 'green',
+                            style: 'background-color:#80ff4d;'
+                        }, {
+                            html: 'blue',
+                            style: 'background-color:#009dff;'
+                        }
+                    ] // items
+                }); // create()
+                
+                setInterval(function () {
+                    crsl.next();
+                    if (crsl.getActiveIndex() === crsl.getMaxItemIndex()) {
+                        crsl.setActiveItem(0);
+                    }
+                }, 2000); // setInterval()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
