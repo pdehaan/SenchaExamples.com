@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="../cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the icon alignment on an Ext.Button component using Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="../cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    styleHtmlContent: true,
+                    defaults: {
+                        margin: 5
+                    }, // defaults
+                    layout: {
+                        type: 'vbox',
+                        align: 'center'
+                    },
+                    items: [{
+                        xtype: 'button',
+                        text: '<code>iconAlign: left</code>',
+                        iconAlign: 'left',
+                        iconCls: 'arrow_left',
+                        iconMask: true
+                    }, {
+                        xtype: 'button',
+                        text: '<code>iconAlign: right</code>',
+                        iconAlign: 'right',
+                        iconCls: 'arrow_right',
+                        iconMask: true
+                    }, {
+                        xtype: 'button',
+                        text: '<code>iconAlign: top</code>',
+                        iconAlign: 'top',
+                        iconCls: 'arrow_up',
+                        iconMask: true
+                    }, {
+                        xtype: 'button',
+                        text: '<code>iconAlign: bottom</code>',
+                        iconAlign: 'bottom',
+                        iconCls: 'arrow_down',
+                        iconMask: true
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
