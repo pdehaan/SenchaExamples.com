@@ -4,4 +4,4 @@ The following example shows how you can align the icon within an Ext.Button comp
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/28/setting-the-icon-alignment-on-an-ext-button-component-using-sencha-touch-2/).
