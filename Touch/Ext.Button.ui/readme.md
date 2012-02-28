@@ -4,4 +4,4 @@ The following example shows how you can set various UI styles on an Ext.Button c
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/27/setting-ui-styles-on-an-ext-button-component-using-sencha-touch-2/).
