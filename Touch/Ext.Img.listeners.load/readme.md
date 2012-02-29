@@ -4,4 +4,4 @@ The following example shows how you can determine whether an image was able to b
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/29/determining-if-an-image-successfully-loaded-using-the-ext-img-component-in-sencha-touch-2/).

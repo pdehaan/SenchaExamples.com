@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
-    <title>Determining if an image successfully loaded using the Ext.Img component in Sencha Touch 2</title>
-    <!-- http://senchaexamples.com/2012/02/29/determining-if-an-image-successfully-loaded-using-the-ext-img-component-in-sencha-touch-2/ -->
+    <title>Determining when a user clicks the Ext.Img component in Sencha Touch 2</title>
+    <!--  -->
 </head>
 <body>
     
@@ -14,15 +14,11 @@
             launch: function () {
                 var logo = Ext.create('Ext.Img', {
                     src: 'http://www.sencha.com/img/sencha-large.png',
-                    width: 372,
-                    height: 140,
+                    mode: 'element',
                     listeners: {
-                        load: function (img, evt) {
-                            Ext.Msg.alert('Ext.Img loaded successfully');
-                        }, // load
-                        error: function (img, evt) {
-                            Ext.Msg.alert('Ext.Img could not be loaded', img.getSrc());
-                        } // error
+                        tap: function (img, evt) {
+                            Ext.Msg.alert('You clicked the image');
+                        } // tap
                     } // listeners
                 }); // create()
                 
