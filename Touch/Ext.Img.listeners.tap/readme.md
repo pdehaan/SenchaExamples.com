@@ -4,4 +4,4 @@ The following example shows how you can determine whether an image was clicked u
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/29/determining-when-a-user-clicks-the-ext-img-component-in-sencha-touch-2/).
