@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Displaying an image using the Ext.Img component in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all-compat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var logo = Ext.create('Ext.Img', {
+                    src: 'http://www.sencha.com/img/sencha-large.png',
+                    id: 'logo',
+                    width: 372,
+                    height: 140
+                }); // create()
+                
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [
+                        {
+                            xtype: 'titlebar',
+                            title: logo.getSrc(),
+                            ui: 'light'
+                        },
+                        logo
+                    ] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
