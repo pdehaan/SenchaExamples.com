@@ -4,4 +4,4 @@ The following example shows how you can toggle an Ext.ActionSheet container in S
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/29/displaying-an-ext-actionsheet-container-in-sencha-touch-2/).
