@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Creating a rounded Ext.List component in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    ui: 'round',
+                    store: {
+                        fields: ['ext_xtype', 'ext_class'],
+                        // via http://docs.sencha.com/touch/2-0/#!/guide/components
+                        data: [{
+                            ext_xtype: 'actionsheet',
+                            ext_class: 'Ext.ActionSheet'
+                        }, {
+                            ext_xtype: 'audio',
+                            ext_class: 'Ext.Audio'
+                        }, {
+                            ext_xtype: 'button',
+                            ext_class: 'Ext.Button'
+                        }, {
+                            ext_xtype: 'component',
+                            ext_class: 'Ext.Component'
+                        }, {
+                            ext_xtype: 'container',
+                            ext_class: 'Ext.Container'
+                        }, {
+                            ext_xtype: 'image',
+                            ext_class: 'Ext.Img'
+                        }, {
+                            ext_xtype: 'label',
+                            ext_class: 'Ext.Label'
+                        }, {
+                            ext_xtype: 'loadmask',
+                            ext_class: 'Ext.LoadMask'
+                        }, {
+                            ext_xtype: 'map',
+                            ext_class: 'Ext.Map'
+                        }, {
+                            ext_xtype: 'mask',
+                            ext_class: 'Ext.Mask'
+                        }, {
+                            ext_xtype: 'media',
+                            ext_class: 'Ext.Media'
+                        }, {
+                            ext_xtype: 'panel',
+                            ext_class: 'Ext.Panel'
+                        }, {
+                            ext_xtype: 'segmentedbutton',
+                            ext_class: 'Ext.SegmentedButton'
+                        }, {
+                            ext_xtype: 'sheet',
+                            ext_class: 'Ext.Sheet'
+                        }, {
+                            ext_xtype: 'spacer',
+                            ext_class: 'Ext.Spacer'
+                        }, {
+                            ext_xtype: 'title',
+                            ext_class: 'Ext.Title'
+                        }, {
+                            ext_xtype: 'titlebar',
+                            ext_class: 'Ext.TitleBar'
+                        }, {
+                            ext_xtype: 'toolbar',
+                            ext_class: 'Ext.Toolbar'
+                        }, {
+                            ext_xtype: 'video',
+                            ext_class: 'Ext.Video'
+                        }, {
+                            ext_xtype: 'carousel',
+                            ext_class: 'Ext.carousel.Carousel'
+                        }, {
+                            ext_xtype: 'carouselindicator',
+                            ext_class: 'Ext.carousel.Indicator'
+                        }, {
+                            ext_xtype: 'navigationview',
+                            ext_class: 'Ext.navigation.View'
+                        }, {
+                            ext_xtype: 'datepicker',
+                            ext_class: 'Ext.picker.Date'
+                        }, {
+                            ext_xtype: 'picker',
+                            ext_class: 'Ext.picker.Picker'
+                        }, {
+                            ext_xtype: 'pickerslot',
+                            ext_class: 'Ext.picker.Slot'
+                        }, {
+                            ext_xtype: 'slider',
+                            ext_class: 'Ext.slider.Slider'
+                        }, {
+                            ext_xtype: 'thumb',
+                            ext_class: 'Ext.slider.Thumb'
+                        }, {
+                            ext_xtype: 'tabbar',
+                            ext_class: 'Ext.tab.Bar'
+                        }, {
+                            ext_xtype: 'tabpanel',
+                            ext_class: 'Ext.tab.Panel'
+                        }, {
+                            ext_xtype: 'tab',
+                            ext_class: 'Ext.tab.Tab'
+                        }, {
+                            ext_xtype: 'viewport',
+                            ext_class: 'Ext.viewport.Default'
+                        }, {
+                            ext_xtype: 'dataview',
+                            ext_class: 'Ext.dataview.DataView'
+                        }, {
+                            ext_xtype: 'list',
+                            ext_class: 'Ext.dataview.List'
+                        }, {
+                            ext_xtype: 'listitemheader',
+                            ext_class: 'Ext.dataview.ListItemHeader'
+                        }, {
+                            ext_xtype: 'nestedlist',
+                            ext_class: 'Ext.dataview.NestedList'
+                        }, {
+                            ext_xtype: 'dataitem',
+                            ext_class: 'Ext.dataview.component.DataItem'
+                        }, {
+                            ext_xtype: 'checkboxfield',
+                            ext_class: 'Ext.field.Checkbox'
+                        }, {
+                            ext_xtype: 'datepickerfield',
+                            ext_class: 'Ext.field.DatePicker'
+                        }, {
+                            ext_xtype: 'emailfield',
+                            ext_class: 'Ext.field.Email'
+                        }, {
+                            ext_xtype: 'field',
+                            ext_class: 'Ext.field.Field'
+                        }, {
+                            ext_xtype: 'hiddenfield',
+                            ext_class: 'Ext.field.Hidden'
+                        }, {
+                            ext_xtype: 'input',
+                            ext_class: 'Ext.field.Input'
+                        }, {
+                            ext_xtype: 'numberfield',
+                            ext_class: 'Ext.field.Number'
+                        }, {
+                            ext_xtype: 'passwordfield',
+                            ext_class: 'Ext.field.Password'
+                        }, {
+                            ext_xtype: 'radiofield',
+                            ext_class: 'Ext.field.Radio'
+                        }, {
+                            ext_xtype: 'searchfield',
+                            ext_class: 'Ext.field.Search'
+                        }, {
+                            ext_xtype: 'selectfield',
+                            ext_class: 'Ext.field.Select'
+                        }, {
+                            ext_xtype: 'sliderfield',
+                            ext_class: 'Ext.field.Slider'
+                        }, {
+                            ext_xtype: 'spinnerfield',
+                            ext_class: 'Ext.field.Spinner'
+                        }, {
+                            ext_xtype: 'textfield',
+                            ext_class: 'Ext.field.Text'
+                        }, {
+                            ext_xtype: 'textareafield',
+                            ext_class: 'Ext.field.TextArea'
+                        }, {
+                            ext_xtype: 'textareainput',
+                            ext_class: 'Ext.field.TextAreaInput'
+                        }, {
+                            ext_xtype: 'togglefield',
+                            ext_class: 'Ext.field.Toggle'
+                        }, {
+                            ext_xtype: 'urlfield',
+                            ext_class: 'Ext.field.Url'
+                        }, {
+                            ext_xtype: 'fieldset',
+                            ext_class: 'Ext.form.FieldSet'
+                        }, {
+                            ext_xtype: 'formpanel',
+                            ext_class: 'Ext.form.Panel'
+                        }] // data
+                    }, // store
+                    itemTpl: '<span style="width:300px; display:inline-block;">{ext_class}:</span> \'{ext_xtype}\''
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>

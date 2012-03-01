@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Adding a title to an Ext.ActionSheet container in Sencha Touch 2</title>
+    <!-- http://senchaexamples.com/2012/02/29/adding-a-title-to-an-ext-actionsheet-container-in-sencha-touch-2/ -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+
+                
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: {html:'hello'},
+                    listeners: {
+                        resize: function () {
+                            Ext.Msg.alert(Ext.Viewport.getOrientation());
+                        }
+                    }
+                });
+                
+                /*
+                if (Ext.feature.has.Orientation) {
+                    alert("you support oriefffnt");
+
+Ext.device.Orientation.on({
+    scope: this,
+    orientationchange: function(e) {
+        alert('Alpha: ', e.alpha);
+        console.log('Beta: ', e.beta);
+        console.log('Gamma: ', e.gamma);
+    }
+});
+
+Ext.Viewport.on('orientationchange', function (a,b,c,d) {
+    alert('c:', c);
+    alert("peter");
+}, this);
+
+
+
+                } else {
+                    Ext.Msg.alert('WARNING', 'Your device does not support Orientation')
+                } // if
+                
+                */
+                
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
