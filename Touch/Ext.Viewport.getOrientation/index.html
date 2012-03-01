@@ -12,44 +12,28 @@
     <script type="text/javascript">
         Ext.application({
             launch: function () {
-
+                var msg,
+                    styles = '';
+                if (Ext.feature.has.Orientation) {
+                    msg = 'Rotate your device to detect orientation changes';
+                } else {
+                    msg = 'Sorry, your device does not support orientation.';
+                    styles = 'color: red;';
+                }
                 
                 Ext.create('Ext.Panel', {
                     fullscreen: true,
-                    items: {html:'hello'},
+                    items: {html: msg, style: styles},
+                    styleHtmlContent: true,
                     listeners: {
                         resize: function () {
-                            Ext.Msg.alert(Ext.Viewport.getOrientation());
-                        }
-                    }
-                });
-                
-                /*
-                if (Ext.feature.has.Orientation) {
-                    alert("you support oriefffnt");
-
-Ext.device.Orientation.on({
-    scope: this,
-    orientationchange: function(e) {
-        alert('Alpha: ', e.alpha);
-        console.log('Beta: ', e.beta);
-        console.log('Gamma: ', e.gamma);
-    }
-});
-
-Ext.Viewport.on('orientationchange', function (a,b,c,d) {
-    alert('c:', c);
-    alert("peter");
-}, this);
-
-
-
-                } else {
-                    Ext.Msg.alert('WARNING', 'Your device does not support Orientation')
-                } // if
-                
-                */
-                
+                            /* Wrap this in an `if` statement so it won't be triggered by desktop PCs when a browser changes size. */
+                            if (Ext.feature.has.Orientation) {
+                                Ext.Msg.alert(Ext.Viewport.getOrientation());
+                            } // if
+                        } // resize
+                    } // listeners
+                }); // create()
             } // launch
         }); // application()
     </script>
