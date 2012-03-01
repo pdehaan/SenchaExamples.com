@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Adding a title to an Ext.ActionSheet container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all-compat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var actionSheet = Ext.create('Ext.ActionSheet', {
+                    defaults: {
+                        handler: function (btn, evt) {
+                            actionSheet.hide();
+                        } // handler
+                    }, // defaults
+                    items: [{
+                        xtype: 'titlebar',
+                        title: 'What are we doing?',
+                        ui: 'light'
+                    }, {
+                        text: 'Rock'
+                    }, {
+                        text: 'Paper'
+                    }, {
+                        text: 'Scissors'
+                    }] // items
+                }); // create()
+                
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'titlebar',
+                        items: [{
+                            xtype: 'button',
+                            text: 'Show ActionSheet',
+                            ui: 'confirm',
+                            handler: function () {
+                                actionSheet.show();
+                            } // handler
+                        }] // items
+                    },
+                    actionSheet] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
