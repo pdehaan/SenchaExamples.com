@@ -4,4 +4,4 @@ The following example shows how you can create a rounded Ext.List component in S
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/02/29/creating-a-rounded-ext-list-component-in-sencha-touch-2/).
