@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Fading between items in an Ext.TabPanel container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all-compat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.TabPanel', {
+                    fullscreen: true,
+                    layout: {
+                        type: 'card',
+                        animation: 'fade'
+                    }, // layout
+                    items: [{
+                        title: 'Red',
+                        style: 'background-color:#f00;'
+                    }, {
+                        title: 'Orange',
+                        style: 'background-color:#ffb600;'
+                    }, {
+                        title: 'Yellow',
+                        style: 'background-color:#ff0;'
+                    }, {
+                        title: 'Green',
+                        style: 'background-color:#80ff4d;'
+                    }, {
+                        title: 'Blue',
+                        style: 'background-color:#009dff;'
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
