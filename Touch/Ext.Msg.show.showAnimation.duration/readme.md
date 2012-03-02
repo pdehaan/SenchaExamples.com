@@ -4,4 +4,4 @@ The following example shows how you can set a custom animation duration when an 
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/01/specifying-a-custom-animation-duration-on-an-ext-msg-component-in-sencha-touch-2/).
