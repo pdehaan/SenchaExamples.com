@@ -4,4 +4,4 @@ The following example shows how you can listen for single and double tap events 
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/02/detecting-when-an-item-is-single-or-double-tapped-on-an-ext-list-component-in-sencha-touch-2/).

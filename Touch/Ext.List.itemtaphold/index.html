@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
-    <title>Detecting when an item is single or double tapped on an Ext.List component in Sencha Touch 2</title>
-    <!-- http://senchaexamples.com/2012/03/02/detecting-when-an-item-is-single-or-double-tapped-on-an-ext-list-component-in-sencha-touch-2/ -->
+    <title>Detecting when an item is swiped or tapped and held on an Ext.List component in Sencha Touch 2</title>
+    <!--  -->
 </head>
 <body>
     
@@ -30,13 +30,13 @@
                     }, // store
                     itemTpl: '{name}',
                     listeners: {
-                        itemsingletap: function (list, idx, target, record, evt) {
-                            Ext.Msg.alert('itemsingletap', record.data.name);
-                        },
-                        itemdoubletap: function (list, idx, target, record, evt) {
-                            Ext.Msg.alert('itemdoubletap', record.data.name);
-                        }
-                    }
+                        itemtaphold: function (list, idx, target, record, evt) {
+                            Ext.Msg.alert('itemtaphold', record.data.name);
+                        }, // itemtaphold
+                        itemswipe: function (list, idx, target, record, evt) {
+                            Ext.Msg.alert('itemswipe', record.data.name);
+                        } // itemswipe
+                    } // listeners
                 }); // create()
             } // launch
         }); // application()
