@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Specifying which side of the viewport an Ext.Msg component animates from in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'titlebar',
+                        dock: 'top',
+                        items: [{
+                            text: '<code>enter/exit:left</code>',
+                            handler: function () {
+                                showAlert('left', 'left');
+                            } // handler
+                        }, {
+                            text: '<code>enter/exit:right</code>',
+                            handler: function () {
+                                showAlert('right', 'right');
+                            } // handler
+                        }, {
+                            text: '<code>enter/exit:top</code>',
+                            handler: function () {
+                                showAlert('top', 'top');
+                            } // handler
+                        }, {
+                            text: '<code>enter/exit:bottom</code>',
+                            handler: function () {
+                                showAlert('bottom', 'bottom');
+                            } // handler
+                        }] // items
+                    }] // items
+                }); // create()
+                
+                function showAlert(enterPos, exitPos) {
+                    Ext.Msg.show({
+                        title: 'enter: ' + enterPos + ", exit: " + exitPos,
+                        showAnimation: 'slideIn',
+                        hideAnimation: 'slideOut',
+                        enter: enterPos,
+                        exit: exitPos
+                    }); // show()
+                } // showAlert()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>

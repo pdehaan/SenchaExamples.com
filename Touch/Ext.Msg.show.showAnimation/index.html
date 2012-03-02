@@ -20,11 +20,10 @@
                         items: [{
                             text: 'slideIn/slideOut',
                             handler: function () {
-                                var a = Ext.Msg.show({
+                                Ext.Msg.show({
                                     title:'slide animations',
                                     showAnimation: 'slideIn',
-                                    hideAnimation: 'slideOut',
-                                    hideOnMaskTap: false
+                                    hideAnimation: 'slideOut'
                                 }); // show()
                             } // handler
                         }, {
