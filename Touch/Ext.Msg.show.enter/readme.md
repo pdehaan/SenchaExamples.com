@@ -4,4 +4,4 @@ The following example shows how you can specify which side of the viewport an Ex
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/01/specifying-which-side-of-the-viewport-an-ext-msg-component-animates-from-in-sencha-touch-2/).
