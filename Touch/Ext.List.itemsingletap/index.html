@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Detecting when an item is single or double tapped on an Ext.List component in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    store: {
+                        fields: ['name'],
+                        data: [{
+                            name: 'Red'
+                        }, {
+                            name: 'Orange'
+                        }, {
+                            name: 'Yellow'
+                        }, {
+                            name: 'Green'
+                        }, {
+                            name: 'Blue'
+                        }] // data
+                    }, // store
+                    itemTpl: '{name}',
+                    listeners: {
+                        itemsingletap: function (list, idx, target, record, evt) {
+                            Ext.Msg.alert('itemsingletap', record.data.name);
+                        },
+                        itemdoubletap: function (list, idx, target, record, evt) {
+                            Ext.Msg.alert('itemdoubletap', record.data.name);
+                        }
+                    }
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
