@@ -4,4 +4,4 @@ The following example shows how you can pin grouped item headers on an Ext.List 
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/01/pinning-grouped-headers-on-an-ext-list-component-in-sencha-touch-2/).
