@@ -4,4 +4,4 @@ The following example shows how you can set the title bar UI theme on an Ext.Tit
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/04/setting-a-title-bar-ui-theme-on-an-ext-titlebar-container-in-sencha-touch-2/).
