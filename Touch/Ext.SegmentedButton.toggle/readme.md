@@ -4,4 +4,4 @@ The following example shows how you can detect when a user toggles an Ext.Segmen
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/detecting-when-an-ext-segmentedbutton-component-is-toggled-in-sencha-touch-2/).
