@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Preventing an Ext.SegmentedButton component from being deselected in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            allowDepress: false,
+                            items: [{
+                                text: 'Red',
+                                pressed: true
+                            }, {
+                                text: 'Orange'
+                            }, {
+                                text: 'Yellow'
+                            }, {
+                                text: 'Green'
+                            }, {
+                                text: 'Blue'
+                            }] // items
+                        }] // items
+                    }] // items 
+                }); // create(panel)
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
