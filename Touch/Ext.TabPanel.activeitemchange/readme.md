@@ -4,4 +4,4 @@ The following example shows how you can determine when the active item changes o
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/determining-when-the-active-item-changes-on-an-ext-tabpanel-container-in-sencha-touch-2/).
