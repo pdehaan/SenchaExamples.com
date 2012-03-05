@@ -4,4 +4,4 @@ The following example shows how you can allow multiple items to be selected on a
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/selecting-multiple-items-within-an-ext-segmentedbutton-component-in-sencha-touch-2/).
