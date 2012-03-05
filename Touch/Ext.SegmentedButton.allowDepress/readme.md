@@ -4,4 +4,4 @@ The following example shows how you can prevent an Ext.SegmentedButton component
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/preventing-an-ext-segmentedbutton-component-from-being-deselected-in-sencha-touch-2/).
