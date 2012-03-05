@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Detecting when an Ext.SegmentedButton component is toggled in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: true,
+                        dockedPosition: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            items: [{
+                                text: 'left',
+                                pressed: true
+                            }, {
+                                text: 'center'
+                            }, {
+                                text: 'right'
+                            }, {
+                                text: 'justify'
+                            }], // items
+                            listeners: {
+                                toggle: function (segBtn, btn, isPressed) {
+                                    Ext.Msg.alert('Ext.SegmentedButton toggle:',
+                                        btn.config.text + ' (pressed:' + isPressed + ')');
+                                } // toggle
+                            } // listeners
+                        }] // items
+                    }] // items 
+                }); // create(panel)
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
