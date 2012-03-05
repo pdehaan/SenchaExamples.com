@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
     <title>Setting the badge text on an Ext.TabPanel container's tab in Sencha Touch 2</title>
-    <!--  -->
+    <!-- http://senchaexamples.com/2012/03/05/setting-the-badge-text-on-an-ext-tabpanel-containers-tab-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -19,23 +19,23 @@
                         styleHtmlContent: true,
                     }, // defaults
                     items: [{
-                        title: 'Home',
-                        iconCls: 'home',
                         badgeText: '0',
                         html: 'Home container',
-                        style: 'background-color:red;'
+                        iconCls: 'home',
+                        style: 'background-color:red;',
+                        title: 'Home'
                     }, {
-                        title: 'Profile',
-                        iconCls: 'user',
                         badgeText: 2,
                         html: 'Profile container',
-                        style: 'background-color:green;'
+                        iconCls: 'user',
+                        style: 'background-color:green;',
+                        title: 'Profile'
                     }, {
-                        title: 'Settings',
-                        iconCls: 'settings',
                         badgeText: 13,
                         html: 'Settings container',
-                        style: 'background-color: blue;'
+                        iconCls: 'settings',
+                        style: 'background-color: blue;',
+                        title: 'Settings'
                     }] // items
                 }); // create()
             } // launch

@@ -4,4 +4,4 @@ The following example shows how you can set the badge text on an Ext.TabPanel co
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/setting-the-badge-text-on-an-ext-tabpanel-containers-tab-in-sencha-touch-2/).
