@@ -4,4 +4,4 @@ The following example shows how you can add icons to an Ext.SegmentedButton comp
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/05/adding-icons-to-an-ext-segmentedbutton-component-in-sencha-touch-2/).
