@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Determining when the active item changes on an Ext.TabPanel container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.TabPanel', {
+                    fullscreen: true,
+                    tabBarPosition: 'bottom',
+                    defaults: {
+                        styleHtmlContent: true,
+                    }, // defaults
+                    items: [{
+                        badgeText: '0',
+                        html: 'Home container',
+                        iconCls: 'home',
+                        listeners: {
+                            show: function (aa) {
+                                console.log(this);
+                                alert('Home show');
+                            }, // show
+                            hide: function () {
+                                alert('Home hide');
+                            } // hide
+                        }, // listeners
+                        style: 'background-color:red;',
+                        title: 'Home'
+                    }, {
+                        badgeText: 2,
+                        html: 'Profile container',
+                        iconCls: 'user',
+                        listeners: {
+                            show: function () {
+                                alert('Profile show');
+                            }, // show
+                            hide: function () {
+                                alert('Profile hide');
+                            } // hide
+                        }, // listeners
+                        style: 'background-color:green;',
+                        title: 'Profile'
+                    }, {
+                        badgeText: 13,
+                        html: 'Settings container',
+                        iconCls: 'settings',
+                        listeners: {
+                            show: function () {
+                                alert('Settings show');
+                            }, // show
+                            hide: function () {
+                                alert('Settings hide');
+                            } // hide
+                        }, // listeners
+                        style: 'background-color: blue;',
+                        title: 'Settings'
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>

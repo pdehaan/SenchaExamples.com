@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Determining when the active item changes on an Ext.TabPanel container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.TabPanel', {
+                    fullscreen: true,
+                    tabBarPosition: 'bottom',
+                    defaults: {
+                        styleHtmlContent: true,
+                    }, // defaults
+                    listeners: {
+                        activeitemchange: function (tabPanel, tab, oldTab) {
+                            Ext.Msg.alert('activeitemchange', 'Current tab: ' + tab.config.title);
+                        } // activeitemchange
+                    }, // listeners
+                    items: [{
+                        badgeText: '0',
+                        html: 'Home container',
+                        iconCls: 'home',
+                        style: 'background-color:red;',
+                        title: 'Home'
+                    }, {
+                        badgeText: 2,
+                        html: 'Profile container',
+                        iconCls: 'user',
+                        style: 'background-color:green;',
+                        title: 'Profile'
+                    }, {
+                        badgeText: 13,
+                        html: 'Settings container',
+                        iconCls: 'settings',
+                        style: 'background-color: blue;',
+                        title: 'Settings'
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
