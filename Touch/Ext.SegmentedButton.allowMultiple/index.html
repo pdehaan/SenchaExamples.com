@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Selecting multiple items within an Ext.SegmentedButton component in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            allowMultiple: true,
+                            listeners: {
+                                toggle: function (segBtn, btn, isPressed) {
+                                    var selLabels = [];
+                                    Ext.Array.forEach(segBtn.getPressedButtons(), function (item) {
+                                        selLabels.push(item.config.text);
+                                    }); // forEach()
+                                    Ext.Msg.alert('pressedButtons (' + selLabels.length + '):', Ext.JSON.encode(selLabels));
+                                } // toggle
+                            },
+                            items: [{
+                                text: 'Red'
+                            }, {
+                                text: 'Orange'
+                            }, {
+                                text: 'Yellow'
+                            }, {
+                                text: 'Green'
+                            }, {
+                                text: 'Blue'
+                            }] // items (segmentedbutton)
+                        }] // items (toolbar)
+                    }] // items (panel)
+                }); // create(panel)
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
