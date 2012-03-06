@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .customPressedCls {
+            color: #0a0;
+        }
+    </style>
+    <title>Specifying a custom style for the pressed state on an Ext.SegmentedButton component in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Panel', {
+                    fullscreen: true,
+                    styleHtmlContent: true,
+                    items: [{
+                        xtype: 'segmentedbutton',
+                        pressedCls: 'customPressedCls',
+                        allowMultiple: true,
+                        items: [{
+                            pressed: true,
+                            text: 'Red'
+                        }, {
+                            text: 'Orange'
+                        }, {
+                            text: 'Yellow'
+                        }, {
+                            text: 'Green'
+                        }, {
+                            text: 'Blue'
+                        }] // items
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
