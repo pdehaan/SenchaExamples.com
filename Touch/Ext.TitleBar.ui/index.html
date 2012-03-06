@@ -15,15 +15,20 @@
                 Ext.create('Ext.Panel', {
                     fullscreen: true,
                     items: [{
-                        xtype: 'titlebar',
+                        dock: 'top',
                         title: '<code>ui: \'dark\'</code> (default)',
                         ui: 'dark',
-                        dock: 'top'
+                        xtype: 'titlebar'
                     }, {
-                        xtype: 'titlebar',
+                        dock: 'top',
                         title: '<code>ui: \'light\'</code>',
                         ui: 'light',
-                        dock: 'top'
+                        xtype: 'titlebar'
+                    }, {
+                        dock: 'top',
+                        title: '<code>ui: \'neutral\'</code>',
+                        ui: 'neutral',
+                        xtype: 'titlebar'
                     }] // items
                 }); // create()
             } // launch
