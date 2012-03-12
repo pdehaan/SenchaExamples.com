@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the instructions on an Ext.form.FieldSet container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var contactForm = Ext.create('Ext.form.FormPanel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: {
+                            xtype: 'textfield',
+                            name: 'search',
+                            placeHolder: 'Set FieldSet instructions',
+                            listeners: {
+                                keyup: function (field, evt) {
+                                    Ext.getCmp('myFieldSet').setInstructions(field.getValue());
+                                } // keyup
+                            } // listeners
+                        } // titlebar
+                    }, {
+                        xtype: 'fieldset',
+                        id: 'myFieldSet',
+                        title: 'FieldSet title',
+                        instructions: 'FieldSet instructions',
+                        items: [{
+                            xtype: 'textfield',
+                            name: 'fname',
+                            label: 'First name:'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'lname',
+                            label: 'Last name:'
+                        }] // items (fieldset)
+                    }] // items (formpanel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
