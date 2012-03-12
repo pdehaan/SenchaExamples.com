@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Creating a custom formatting function on an Ext.XTemplate in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var myStore = Ext.create('Ext.data.Store', {
+                    data: [{
+                        fname: 'Stratton',
+                        lname: 'Sclavos',
+                        role: 'Executive Chairman'
+                    }, {
+                        fname: 'Michael',
+                        lname: 'Mullany',
+                        role: 'CEO'
+                    }, {
+                        fname: 'Ted',
+                        lname: 'Driscoll',
+                        role: 'Vice President Worldwide Sales'
+                    }, {
+                        fname: 'Abraham',
+                        lname: 'Elias',
+                        role: 'Chief Technical Officer'
+                    }, {
+                        fname: 'Jeff',
+                        lname: 'Hartley',
+                        role: 'Vice President of Services and Training'
+                    }, {
+                        fname: 'Adam',
+                        lname: 'Mishcon',
+                        role: 'Vice President of Operations'
+                    }, {
+                        fname: 'Judy',
+                        lname: 'Lin',
+                        role: 'Vice President of Engineering'
+                    }], // data
+                    sorters: 'lname'
+                }); // create()
+                
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    store: myStore,
+                    itemTpl: '<div><strong>{[values.lname.toUpperCase()]}</strong>, {fname}</div>',
+                    items: [{
+                        xtype: 'titlebar',
+                        title: 'Ext.XTemplate custom function',
+                        docked: 'top'
+                    }] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
