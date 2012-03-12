@@ -30,6 +30,7 @@
             
                 var myStore = Ext.create('Ext.data.Store', {
                     model: 'MyModel',
+                    sorters: 'dob',
                     data: [{
                         fname: 'Tony',
                         dob: "04/21/1951" // new Date(1951, 3, 21)
@@ -45,8 +46,7 @@
                     }, {
                         fname: 'Mona',
                         dob: "07/05/1928" // new Date(1928, 6, 5)
-                    }], // data
-                    sorters: 'dob'
+                    }] // data
                 }); // create()
                 
                 Ext.create('Ext.List', {
@@ -57,7 +57,7 @@
                         xtype: 'titlebar',
                         title: 'Ext.XTemplate date()',
                         docked: 'top'
-                    }
+                    } // items
                 }); // create()
             } // launch
         }); // application()
