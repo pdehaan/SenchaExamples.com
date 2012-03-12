@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .muted {
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+    <title>Formatting dates in an XTemplate in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.define('MyModel', {
+                    extend: 'Ext.data.Model',
+                    config: {
+                        fields: [
+                            {name: 'fname', type: 'string'},
+                            {name: 'dob', type: 'date'}
+                        ] // fields
+                    } // config
+                }); // define()
+            
+                var myStore = Ext.create('Ext.data.Store', {
+                    model: 'MyModel',
+                    data: [{
+                        fname: 'Tony',
+                        dob: "04/21/1951" // new Date(1951, 3, 21)
+                    }, {
+                        fname: 'Angela',
+                        dob: "02/09/1949" // new Date(1949, 1, 9)
+                    }, {
+                        fname: 'Samantha',
+                        dob: "12/19/1972" // new Date(1972, 11, 19)
+                    }, {
+                        fname: 'Jonathan',
+                        dob: "01/06/1976" // new Date(1976, 0, 6)
+                    }, {
+                        fname: 'Mona',
+                        dob: "07/05/1928" // new Date(1928, 6, 5)
+                    }], // data
+                    sorters: 'dob'
+                }); // create()
+                
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    store: myStore,
+                    itemTpl: '<div>{fname} &mdash; <small class="muted">{dob:date("F j, Y")}</small></div>',
+                    items: {
+                        xtype: 'titlebar',
+                        title: 'Ext.XTemplate date()',
+                        docked: 'top'
+                    }
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
