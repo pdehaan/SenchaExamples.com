@@ -10,7 +10,7 @@
         }
     </style>
     <title>Truncating strings in an XTemplate in Sencha Touch 2</title>
-    <!--  -->
+    <!-- http://senchaexamples.com/2012/03/12/truncating-strings-in-an-xtemplate-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -54,7 +54,7 @@
                 Ext.create('Ext.List', {
                     fullscreen: true,
                     store: myStore,
-                    itemTpl: '<div>{lname}, {fname} &mdash; <small class="muted">{role:ellipsis(22)}</small></div>',
+                    itemTpl: '<div>{lname}, {fname} &mdash; <small class="muted">{role:ellipsis(22, true)}</small></div>',
                     items: {
                         xtype: 'titlebar',
                         title: 'Ext.XTemplate ellipsis()',
