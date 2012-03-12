@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
-    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
-    <title></title>
-    <!--  -->
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Horizontally positioning the buttons in an Ext.TabPanel container in Sencha Touch 2</title>
+    <!-- http://senchaexamples.com/2012/03/12/horizontally-positioning-the-buttons-in-an-ext-tabpanel-container-in-sencha-touch-2/ -->
 </head>
 <body>
     
-    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
     <script type="text/javascript">
         Ext.application({
             launch: function () {
@@ -20,11 +20,31 @@
                         } // layout
                     }, // tabBar
                     tabBarPosition: 'bottom',
-                    items: [
-                        {title: 'Home', iconCls:'home'},
-                        {title: 'Maps', iconCls:'maps'}
-                    ] // items
+                    defaults: {
+                        styleHtmlContent: true,
+                        listeners: {
+                            show: setTabBarPack
+                        } // listeners
+                    }, // defaults
+                    items: [{
+                        title: 'start',
+                        iconCls: 'arrow_left',
+                        html: 'tabBar: { layout: { pack: "start" } }'
+                    }, {
+                        title: 'center',
+                        iconCls: 'arrow_down',
+                        html: 'tabBar: { layout: { pack: "center" } }'
+                    }, {
+                        title: 'end',
+                        iconCls: 'arrow_right',
+                        html: 'tabBar: { layout: { pack: "end" } }'
+                    }] // items
                 }); // create()
+                
+                function setTabBarPack(obj) {
+                    var value = obj.config.title;
+                    Ext.ComponentQuery.query('tabpanel')[0].getTabBar().getLayout().setPack(value);
+                } // setTabBarPack()
             } // launch
         }); // application()
     </script>
