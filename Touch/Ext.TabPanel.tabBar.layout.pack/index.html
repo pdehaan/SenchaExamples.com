@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://senchaexamples.com/cdn/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title></title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://senchaexamples.com/cdn/builds/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.TabPanel', {
+                    fullscreen: true,
+                    tabBar: {
+                        layout: {
+                            pack: 'start'
+                        } // layout
+                    }, // tabBar
+                    tabBarPosition: 'bottom',
+                    items: [
+                        {title: 'Home', iconCls:'home'},
+                        {title: 'Maps', iconCls:'maps'}
+                    ] // items
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
