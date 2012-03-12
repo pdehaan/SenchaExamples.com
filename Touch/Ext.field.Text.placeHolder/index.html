@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
     <title>Setting the place holder text on an Ext.field.Text control in Sencha Touch 2</title>
-    <!--  -->
+    <!-- http://senchaexamples.com/2012/03/12/setting-the-place-holder-text-on-an-ext-field-text-control-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -24,16 +24,16 @@
                             listeners: {
                                 keyup: function (txt, evt) {
                                     Ext.getCmp('tf').setPlaceHolder(txt.getValue());
-                                }
-                            }
+                                } // keyup
+                            } // listeners
                         }, {
                             xtype: 'textfield',
                             id: 'tf',
                             name: 'demo',
                             label: 'placeHolder demo:',
                             placeHolder: 'Updated placeHolder text appears here'
-                        }] // items (fieldset)
-                    }] // items (formpanel)
+                        }] // items
+                    }] // items
                 }); // create()
             } // launch
         }); // application()

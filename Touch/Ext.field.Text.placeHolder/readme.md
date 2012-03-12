@@ -4,4 +4,4 @@ The following example shows how you can set the place holder text (the text that
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/12/setting-the-place-holder-text-on-an-ext-field-text-control-in-sencha-touch-2/).
