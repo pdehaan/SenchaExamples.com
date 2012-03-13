@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Disabling the Ext.field.Slider control in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'sliderfield',
+                            id: 'sl',
+                            label: 'slider:',
+                            minValue: 0,
+                            maxValue: 200,
+                            disabled: true
+                        }, {
+                            xtype: 'checkboxfield',
+                            id: 'debug',
+                            label: 'disabled:',
+                            checked: true,
+                            listeners: {
+                                check: function (ch, evt) {
+                                    Ext.getCmp('sl').setDisabled(ch.getChecked());
+                                }, // check
+                                uncheck: function (ch, evt) {
+                                    Ext.getCmp('sl').setDisabled(ch.getChecked());
+                                } // uncheck
+                            } // listeners
+                        }] // items (fieldset)
+                    }] // items (panel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
