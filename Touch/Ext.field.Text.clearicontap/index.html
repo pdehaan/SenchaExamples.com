@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
     <title>Determining when a user clicks the clear icon on an Ext.field.Text control in Sencha Touch 2</title>
-    <!--  -->
+    <!-- http://senchaexamples.com/2012/03/12/determining-when-a-user-clicks-the-clear-icon-on-an-ext-field-text-control-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -17,21 +17,17 @@
                     items: [{
                         xtype: 'fieldset',
                         title: 'Ext.field.Text clearicontap example:',
+                        instructions: 'Click the clear icon (X) above to dispatch the <code>clearicontap</code> event.',
                         items: [{
                             xtype: 'textfield',
                             clearIcon: true,
                             label: 'clearIcon: true (default)',
-                            value: 'I will show a clear icon >>>',
+                            value: 'Click icon to clear text >>>',
                             listeners: {
                                 clearicontap: function (txt, evt) {
                                     Ext.Msg.alert('You clicked the clear icon');
                                 } // clearicontap
                             } // listeners
-                        }, {
-                            xtype: 'textfield',
-                            clearIcon: false,
-                            label: 'clearIcon: false',
-                            value: 'I will NOT show a clear icon >>>'
                         }] // items (fieldset)
                     }] // items (formpanel)
                 }); // create()
