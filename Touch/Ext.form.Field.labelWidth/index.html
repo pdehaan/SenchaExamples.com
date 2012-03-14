@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the label width on an Ext.form.Field container in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'fieldset',
+                        instructions: 'Drag the Slider thumb to update the <code>labelWidth</code> va.',
+                        items: [{
+                            xtype: 'sliderfield',
+                            label: 'labelWidth:',
+                            minValue: 0,
+                            maxValue: 200,
+                            value: 150,
+                            listeners: {
+                                change: function (slider, thumb, newVal, oldVal) {
+                                    var dbg = Ext.getCmp('debug');
+                                    dbg.setValue(newVal);
+                                    dbg.setLabelWidth(newVal);
+                                } // change
+                            } // listeners
+                        }] // items (fieldset)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'textfield',
+                            id: 'debug',
+                            label: 'textfield label:',
+                            labelWidth: 150,
+                            value: 150,
+                            readOnly: true
+                        }] // items (fieldset)
+                    }] // items (panel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
