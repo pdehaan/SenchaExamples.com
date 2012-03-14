@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Getting the selected item value for an Ext.field.Select control in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'get selected item',
+                            handler: function () {
+                                Ext.Msg.alert('getValue()', Ext.getCmp('sel').getValue());
+                            } // handler
+                        }] // items
+                    }, {
+                        xtype: 'fieldset',
+                        instructions: 'Please select a product.',
+                        items: [{
+                            xtype: 'selectfield',
+                            id: 'sel',
+                            label: 'Product',
+                            options: [{
+                                text: 'Ext JS',
+                                value: 'extjs'
+                            }, {
+                                text: 'Sencha Touch',
+                                value: 'senchatouch'
+                            }, {
+                                text: 'Sencha Animator',
+                                value: 'animator'
+                            }, {
+                                text: 'Sencha Designer',
+                                value: 'designer'
+                            }], // options
+                            listeners: {
+                                change: function (select, newValue, oldValue) {
+                                    Ext.Msg.alert('change', newValue.data.value);
+                                } // change
+                            } // listeners
+                        }] // items (fieldset)
+                    }] // items (panel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
