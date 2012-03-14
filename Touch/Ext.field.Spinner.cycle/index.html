@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Toggling value wrapping on an Ext.field.Spinner control in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: {
+                            text: 'toggle cycle',
+                            handler: function () {
+                                var spnnr = Ext.getCmp('spnnr');
+                                spnnr.setCycle(!spnnr.getCycle());
+                                spnnr.setLabel('cycle = ' + spnnr.getCycle());
+                            } // handler
+                        } // items
+                    }, {
+                        xtype: 'fieldset',
+                        instructions: '<code>minValue = 10; maxValue = 20;</code>',
+                        items: [{
+                            xtype: 'spinnerfield',
+                            id: 'spnnr',
+                            cycle: true,
+                            label: 'cycle = true',
+                            minValue: 10,
+                            maxValue: 20
+                        }] // items (fieldset)
+                    }] // items (formpanel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
