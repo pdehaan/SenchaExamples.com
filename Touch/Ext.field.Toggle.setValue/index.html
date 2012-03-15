@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Programmatically setting an Ext.field.Toggle control in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+     
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            items: [{
+                                text: '<code>toggle()</code>',
+                                handler: function (btn) {
+                                    btn.up('formpanel').down('togglefield').toggle();
+                                } // handler
+                            }, {
+                                text: '<code>setValue(0)</code>',
+                                handler: function (btn) {
+                                    btn.up('formpanel').down('togglefield').setValue(0);
+                                } // handler
+                            }, {
+                                text: '<code>setValue(1)</code>',
+                                handler: function (btn) {
+                                    btn.up('formpanel').down('togglefield').setValue(1);
+                                } // handler
+                            }], // items (segmentedbutton)
+                            listeners: {
+                                toggle: function (segBtn, btn, isPressed) {
+                                    segBtn.setPressedButtons([]);
+                                } // toggle
+                            } // listeners
+                        }] // items (toolbar)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'togglefield',
+                            label: 'togglefield:'
+                        }] // items (fieldset)
+                    }] // items (formpanel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
