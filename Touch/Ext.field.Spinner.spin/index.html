@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Detecting when the user changes an Ext.field.Spinner control in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+     
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var tmpl = Ext.create('Ext.XTemplate', '[{evt}] value: {value}, direction: \'{dir}\'');
+                
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'fieldset',
+                        id: 'fset',
+                        items: [{
+                            xtype: 'spinnerfield',
+                            label: 'value:',
+                            increment: 1,
+                            listeners: {
+                                spin: function (spinner, value, dir) {
+                                    var str = tmpl.apply({evt:'spin', value:value, dir:dir});
+                                    spinner.up('fieldset').setInstructions(str);
+                                } // spin
+                            } // listeners
+                        }] // items (fieldset)
+                    }] // items (formpanel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
