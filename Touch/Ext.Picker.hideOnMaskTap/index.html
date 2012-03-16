@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Closing an Ext.picker.Picker control by clicking on the modal mask in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all-debug.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'hideOnMaskTap: true',
+                            handler: function () {
+                                picker.setHideOnMaskTap(true);
+                                picker.show();
+                                Ext.getCmp('slot1').setTitle('hideOnMaskTap = true');
+                            } // handler
+                        }, {
+                            text: 'hideOnMaskTap: false',
+                            handler: function () {
+                                picker.setHideOnMaskTap(false);
+                                picker.show();
+                                Ext.getCmp('slot1').setTitle('hideOnMaskTap = false');
+                            } // handler
+                        }] // items (toolbar)
+                    }] // items (container)
+                }); // create()
+                
+                var picker = Ext.create('Ext.Picker', {
+                    hideOnMaskTap: true,
+                    useTitles: true,
+                    slots: [{
+                        id: 'slot1',
+                        name: 'maskTap',
+                        title: 'hideOnMaskTap = true',
+                        data: [{
+                            text: 'Red',
+                            value: 0xf00
+                        }, {
+                            text: 'Orange',
+                            value: 0xffb600
+                        }, {
+                            text: 'Yellow',
+                            value: 0xff0
+                        }, {
+                            text: 'Green',
+                            value: 0x80ff4d
+                        }, {
+                            text: 'Blue',
+                            value: 0x009dff
+                        }] // data
+                    }] // slots
+                }); // create()
+                
+                Ext.Viewport.add(picker);
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
