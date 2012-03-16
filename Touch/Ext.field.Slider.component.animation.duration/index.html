@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
     <title>Setting the thumb animation duration on an Ext.field.Slider control in Sencha Touch 2</title>
-    <!-- Ext.field.Slider.component.animation.duration -->
+    <!-- http://senchaexamples.com/2012/03/16/setting-the-thumb-animation-duration-on-an-ext-field-slider-control-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -22,7 +22,20 @@
                     }, {
                         xtype: 'fieldset',
                         items: [{
+                            xtype: 'spinnerfield',
+                            label: 'animation.duration:',
+                            minValue: 0,
+                            maxValue: 5000,
+                            value: 5000,
+                            increment: 500,
+                            listeners: {
+                                spin: function (spinner, value, direction) {
+                                    Ext.getCmp('slider').getComponent().config.animation.duration = value;
+                                } // spin
+                            } // listeners
+                        }, {
                             xtype: 'sliderfield',
+                            id: 'slider',
                             label: 'sliderfield:',
                             minValue: 0,
                             maxValue: 100,
