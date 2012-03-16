@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the group sorting direction an Ext.List component in Sencha Touch 2</title>
+    <!-- / -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.data.Store', {
+                    storeId: 'mlbAL',
+                    fields: ['name', 'league', 'division'],
+                    sorters: 'name',
+                    grouper: {
+                        groupFn: function (item) {
+                            return item.get('name')[0];
+                        } // groupFn
+                    }, // grouper
+                    groupDir: 'DESC',
+                    data: [{
+                        name: 'New York Yankees',
+                        league: 'AL',
+                        division: 'East'
+                    }, {
+                        name: 'Tampa Bay',
+                        league: 'AL',
+                        division: 'East'
+                    }, {
+                        name: 'Boston',
+                        league: 'AL',
+                        division: 'East'
+                    }, {
+                        name: 'Toronto',
+                        league: 'AL',
+                        division: 'East'
+                    }, {
+                        name: 'Baltimore',
+                        league: 'AL',
+                        division: 'East'
+                    }, {
+                        name: 'Detroit',
+                        league: 'AL',
+                        division: 'Central'
+                    }, {
+                        name: 'Cleveland',
+                        league: 'AL',
+                        division: 'Central'
+                    }, {
+                        name: 'Chicago White Sox',
+                        league: 'AL',
+                        division: 'Central'
+                    }, {
+                        name: 'Kansas City',
+                        league: 'AL',
+                        division: 'Central'
+                    }, {
+                        name: 'Minnesota',
+                        league: 'AL',
+                        division: 'Central'
+                    }, {
+                        name: 'Texas',
+                        league: 'AL',
+                        division: 'West'
+                    }, {
+                        name: 'Los Angeles Angels',
+                        league: 'AL',
+                        division: 'West'
+                    }, {
+                        name: 'Oakland',
+                        league: 'AL',
+                        division: 'West'
+                    }, {
+                        name: 'Seattle',
+                        league: 'AL',
+                        division: 'West'
+                    }] // data
+                }); // create(store)
+                
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    pinHeaders: true,
+                    grouped: true,
+                    store: 'mlbAL',
+                    itemTpl: '{name}',
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            html: 'groupDir = ASC',
+                            handler: function () {
+                                Ext.getStore('mlbAL').setGroupDir('ASC').sort();
+                            } // handler
+                        }, {
+                            text: 'groupDir = DESC',
+                            handler: function () {
+                                Ext.getStore('mlbAL').setGroupDir('DESC').sort();
+                            } // handler
+                        }] // items (toolbar)
+                    }] // items (list)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
