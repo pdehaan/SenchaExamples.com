@@ -12,7 +12,8 @@
     <script type="text/javascript">
         Ext.application({
             launch: function () {
-                var sto = Ext.create('Ext.data.Store', {
+                Ext.create('Ext.data.Store', {
+                        storeId: 'myStore',
                         fields: ['name', 'league', 'division'],
                         sorters: 'name',
                         filters: [{
@@ -87,19 +88,25 @@
                         items: [{
                             text: 'West only',
                             handler: function () {
-                                sto.clearFilter(); // clear all existing filters
+                                var sto = Ext.getStore('myStore');
+                                // clear all existing filters
+                                sto.clearFilter();
                                 sto.filter('division', 'West');
                             } // handler
                         }, {
                             text: 'Central only',
                             handler: function () {
-                                sto.clearFilter(); // clear all existing filters
+                                var sto = Ext.getStore('myStore');
+                                // clear all existing filters
+                                sto.clearFilter();
                                 sto.filter('division', 'Central');
                             } // handler
                         }, {
                             text: 'East only',
                             handler: function () {
-                                sto.clearFilter(); // clear all existing filters
+                                var sto = Ext.getStore('myStore');
+                                // clear all existing filters
+                                sto.clearFilter();
                                 sto.filter('division', 'East');
                             } // handler
                         }, {
@@ -107,11 +114,11 @@
                             ui: 'decline',
                             align: 'right',
                             handler: function () {
-                                sto.clearFilter();
+                                Ext.getStore('myStore').clearFilter();
                             } // handler
                         }] // items (toolbar)
                     }], // items (list)
-                    store: sto,
+                    store: 'myStore',
                     itemTpl: '{name}'
                 }); // create()
             } // launch
