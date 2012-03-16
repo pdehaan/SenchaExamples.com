@@ -4,4 +4,4 @@ The following example shows how you filter the data store on an Ext.List (list) 
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/15/filtering-data-in-an-ext-list-component-in-sencha-touch-2/).
