@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Specifying which side of the viewport an Ext.ActionSheet container animates from in Sencha Touch 2</title>
+    <!--  -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all-debug.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var actionSheet = Ext.create('Ext.ActionSheet', {
+                    enter: 'top',
+                    exit: 'right',
+                    hidden: true,
+                    defaults: {
+                        listeners: {
+                            tap: function () {
+                                actionSheet.hide();
+                            } // tap
+                        } // listeners
+                    }, // defaults
+                    items: [{
+                        text: 'Cancel',
+                        handler: function () {
+                            /* cancel handler */
+                        } // handler
+                    }, {
+                        text: 'Submit',
+                        handler: function () {
+                            /* submit handler */
+                        } // handler
+                    }] // items
+                }); // create()
+                
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        items: [{
+                            text: 'enter:top, exit:right',
+                            handler: function () {
+                                actionSheet.show();
+                            } // handler
+                        }] // items (toolbar)
+                    }] // items (container)
+                }); // create()
+                
+                Ext.Viewport.add(actionSheet);
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
