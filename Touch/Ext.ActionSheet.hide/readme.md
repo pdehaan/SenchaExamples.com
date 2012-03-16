@@ -4,4 +4,4 @@ The following example shows how you can create an auto-closing Ext.ActionSheet c
 
 ---
 
-For more information, see [SenchaExamples.com]().
+For more information, see [SenchaExamples.com](http://senchaexamples.com/2012/03/16/creating-an-auto-closing-ext-actionsheet-container-in-sencha-touch-2/).
