@@ -4,7 +4,7 @@
     <meta charset="UTF-8"/>
     <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
     <title>Setting a list of options on an Ext.field.Select control in Sencha Touch 2</title>
-    <!--  -->
+    <!-- http://senchaexamples.com/2012/03/19/setting-a-list-of-options-on-an-ext-field-select-control-in-sencha-touch-2/ -->
 </head>
 <body>
     
@@ -12,25 +12,61 @@
     <script type="text/javascript">
         Ext.application({
             launch: function () {
+                var otherOptions = [{
+                    text: 'Tony',
+                    value: 5
+                }, {
+                    text: 'Angela',
+                    value: 6
+                }, {
+                    text: 'Samantha',
+                    value: 7
+                }, {
+                    text: 'Jonathan',
+                    value: 8
+                }, {
+                    text: 'Mona',
+                    value: 9
+                }];
+                
                 Ext.create('Ext.form.Panel', {
                     fullscreen: true,
                     items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'button',
+                            text: 'change options',
+                            handler: function () {
+                                this.up('formpanel').down('selectfield').setOptions(otherOptions);
+                            } // handler
+                        }] // items
+                    }, {
                         xtype: 'fieldset',
                         items: [{
                             xtype: 'selectfield',
                             label: 'options:',
                             name: 'mySelect',
-                            options: [
-                                {text:'First', value:0},
-                                {text:'Second', value:1},
-                                {text:'Third', value:14}
-                            ], // options
+                            options: [{
+                                text: 'First',
+                                value: 0
+                            }, {
+                                text: 'Second',
+                                value: 1
+                            }, {
+                                text: 'Third',
+                                value: 14
+                            }], // options
                             listeners: {
                                 change: function (select, newValue, oldValue) {
-                                    var debug = Ext.String.format('<p><b>newValue:</b> {0}</p><p><b>oldValue:</b> {1}</p>',
-                                                    Ext.JSON.encode(newValue.data),
-                                                    Ext.JSON.encode(oldValue.data));
-                                    Ext.Msg.alert('selectfield change dispatched:', debug);
+                                    if (oldValue) {
+                                        var debug = Ext.String.format('<p><b>newValue:</b> {0}</p><p><b>oldValue:</b> {1}</p>',
+                                                        Ext.JSON.encode(newValue.data),
+                                                        Ext.JSON.encode(oldValue.data));
+                                        Ext.Msg.alert('selectfield change dispatched:', debug);
+                                    } else {
+                                        console.log('oldValue is undefined');
+                                    }
                                 } // change
                             } // listeners
                         }] // items (fieldset)
