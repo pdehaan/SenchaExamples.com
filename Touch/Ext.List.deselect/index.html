@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Preventing items from being selected in an Ext.List component in Sencha Touch 2</title>
+    <!-- Ext.List.deselect -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var myList = Ext.create('Ext.List', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'titlebar',
+                        docked: 'top',
+                        ui: 'neutral'
+                    }], // items
+                    store: {
+                        fields: ['name', 'selectable'],
+                        data: [{
+                            name: 'Red'
+                        }, {
+                            name: 'Orange'
+                        }, {
+                            name: 'Yellow',
+                            selectable: true
+                        }, {
+                            name: 'Green (unselectable)',
+                            selectable: false
+                        }, {
+                            name: 'Blue'
+                        }] // data
+                    }, // store
+                    itemTpl: '{name}',
+                    listeners: {
+                        select: function (list, model) {
+                            var value = model.get('name');
+                            if (model.get('selectable') === false) {
+                                list.deselect(model);
+                                return false;
+                            }
+                            this.down('titlebar').setTitle(value);
+                        } // select
+                    } // listeners
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
