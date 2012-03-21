@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Setting the label alignment on an Ext.field.Text control in Sencha Touch 2</title>
+    <!-- Ext.field.Text.labelAlign -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            allowDepress: false,
+                            items: [{
+                                text: 'left'
+                            }, {
+                                text: 'right'
+                            }, {
+                                text: 'top',
+                                pressed: true
+                            }], // items (segmentedbutton)
+                            listeners: {
+                                toggle: function (segBtn, btn) {
+                                    var tfield = segBtn.up('formpanel').down('textfield'),
+                                        value = btn.getText();
+                                    tfield.setLabel('labelAlign = ' + value);
+                                    tfield.setLabelAlign(value);
+                                } // toggle
+                            } // listeners
+                        }] // items (toolbar)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'textfield',
+                            label: 'labelAlign = top',
+                            labelAlign: 'top',
+                            value: 'The quick brown fox jumps over the lazy dog.'
+                        }] // items (fieldset)
+                    }] // items (formpanel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
