@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Disabling individual buttons in an Ext.SegmentedButton control in Sencha Touch 2</title>
+    <!-- Ext.SegmentedButton.items.disabled -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Container', {
+                    padding: 20,
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Toggle Samantha (disabled)',
+                            handler: function () {
+                                var btn = Ext.ComponentQuery.query('button[name=samanthaButton]')[0];
+                                btn.setDisabled(!btn.getDisabled());
+                            } // handler
+                        }, {
+                            text: 'Toggle Jonathan (hidden)',
+                            handler: function () {
+                                var btn = Ext.ComponentQuery.query('button[name=jonathanButton]')[0];
+                                btn.setHidden(!btn.getHidden());
+                            }
+                        }] // items (toolbar)
+                    }, {
+                        xtype: 'segmentedbutton',
+                        allowDepress: false,
+                        items: [{
+                            text: 'Tony',
+                            pressed: true
+                        }, {
+                            text: 'Angela'
+                        }, {
+                            text: 'Samantha',
+                            disabled: true,
+                            name: 'samanthaButton'
+                        }, {
+                            text: 'Jonathan',
+                            hidden: true,
+                            name: 'jonathanButton'
+                        }, {
+                            text: 'Mona'
+                        }] // items (segmentedbutton)
+                    }] // items (container)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
