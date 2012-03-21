@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Dynamically adding items to an Ext.List control in Sencha Touch 2</title>
+    <!-- Ext.data.Store.add -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all-debug.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var myStore = Ext.create('Ext.data.Store', {
+                    storeId: 'MyStore',
+                    fields: ['txt']
+                }); // create()
+                
+                Ext.create('Ext.List', {
+                    fullscreen: true,
+                    store: 'MyStore',
+                    itemTpl: '{txt}',
+                    items: [{
+                        xtype: 'titlebar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Add item',
+                            handler: function () {
+                                var now = new Date(),
+                                    value = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+                                myStore.add({txt: value});
+                            } // handler
+                        }] // items (titlebar)
+                    }] // items (list)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
