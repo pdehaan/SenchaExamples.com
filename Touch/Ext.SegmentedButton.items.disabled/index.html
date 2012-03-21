@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Disabling individual buttons in an Ext.SegmentedButton control in Sencha Touch 2</title>
+    <!-- Ext.SegmentedButton.items.disabled -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            xtype: 'segmentedbutton',
+                            allowDepress: false,
+                            items: [{
+                                text: 'Tony',
+                                pressed: true
+                            }, {
+                                text: 'Angela'
+                            }, {
+                                text: 'Samantha',
+                                disabled: true
+                            }, {
+                                text: 'Jonathan',
+                                disabled: true
+                            }, {
+                                text: 'Mona',
+                                hidden: true
+                            }], // items (segmentedbutton)
+                            listeners: {
+                                toggle: function (segBtn, btn, isPressed) {
+                                    Ext.Msg.alert('toggle', btn.getText() + ' was pressed.');
+                                } // toggle
+                            } // listeners
+                        }] // items (toolbar)
+                    }] // items (container)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
