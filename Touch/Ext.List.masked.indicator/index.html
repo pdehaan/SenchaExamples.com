@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Toggling the indicator on an Ext.List component loading mask in Sencha Touch 2</title>
+    <!-- Ext.List.masked.indicator -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                var myList = Ext.create('Ext.List', {
+                    fullscreen: true,
+                    itemTpl: '{name}',
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Toggle indicator',
+                            handler: function () {
+                                var mask = myList.getMasked();
+                                mask.setIndicator(!mask.getIndicator());
+                                mask.setMessage('indicator = ' + mask.getIndicator());
+                                myList.setMasked(mask);
+                            } // handler
+                        }] // items (toolbar)
+                    }], // items (list)
+                    masked: {
+                        xtype: 'loadmask',
+                        indicator: false,
+                        message: 'indicator = false'
+                    }, // masked
+                    store: {
+                        fields: ['name'],
+                        data: [{
+                            name: 'Red'
+                        }, {
+                            name: 'Orange'
+                        }, {
+                            name: 'Yellow'
+                        }, {
+                            name: 'Green'
+                        }, {
+                            name: 'Blue'
+                        }] // data
+                    } // store
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
