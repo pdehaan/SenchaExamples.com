@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Populating an Ext.form.Panel container from a model using Sencha Touch 2</title>
+    <!-- Ext.form.Panel.setRecord -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.define('TeamModel', {
+                    extend: 'Ext.data.Model',
+                    config: {
+                        fields: ['teamName', 'division', 'league']
+                    } // config
+                }); // define()
+
+                var form = Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'setRecord(Giants)',
+                            handler: function () {
+                                var team = Ext.create('TeamModel', {
+                                    teamName: 'San Francisco Giants',
+                                    league: 'NL',
+                                    division: 'West'
+                                }); // create()
+                                form.setRecord(team);
+                            } // handler
+                        }, {
+                            text: 'setRecord(Tigers)',
+                            handler: function () {
+                                var team = Ext.create('TeamModel', {
+                                    teamName: 'Detroit Tigers',
+                                    league: 'AL',
+                                    division: 'Central'
+                                }); // create()
+                                form.setRecord(team);
+                            } // handler
+                        }] // items (toolbar)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'textfield',
+                            name: 'teamName',
+                            label: 'Team Name:'
+                        }, {
+                            xtype: 'selectfield',
+                            name: 'division',
+                            label: 'Division:',
+                            options: [{
+                                text: 'East',
+                                value: 'East'
+                            }, {
+                                text: 'Central',
+                                value: 'Central'
+                            }, {
+                                text: 'West',
+                                value: 'West'
+                            }] // options
+                        }, {
+                            xtype: 'selectfield',
+                            name: 'league',
+                            label: 'League:',
+                            options: [{
+                                text: 'AL',
+                                value: 'AL'
+                            }, {
+                                text: 'NL',
+                                value: 'NL'
+                            }] // options
+                        }] // items (fieldset)
+                    }] // items (panel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
