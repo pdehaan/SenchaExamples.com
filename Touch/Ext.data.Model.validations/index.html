@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Validating an Ext.data.Model object using Sencha Touch 2</title>
+    <!-- Ext.data.Model.validations -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.define('UserModel', {
+                    extend: 'Ext.data.Model',
+                    config: {
+                        fields: [{
+                            name: 'firstName',
+                            type: 'string'
+                        }, {
+                            name: 'lastName',
+                            type: 'string'
+                        }, {
+                            name: 'email',
+                            type: 'string'
+                        }], // fields
+                        validations: [{
+                            field: 'firstName',
+                            type: 'presence',
+                            message: 'First name is required.'
+                        }, {
+                            field: 'lastName',
+                            type: 'presence',
+                            message: 'Last name is required.'
+                        }, {
+                            field: 'email',
+                            type: 'presence',
+                            message: 'Email address is required.'
+                        }] // validations
+                    } // config
+                }); // define()
+                
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'titlebar',
+                        docked: 'top',
+                        items: [{
+                            text: 'foo',
+                            handler: function () {
+                                var usr = Ext.create('UserModel', {
+                                        firstName: 'Peter'
+                                    }),
+                                    errs = usr.validate(),
+                                    msg = '';
+                                
+                                if (!errs.isValid()) {
+                                    errs.each(function (err) {
+                                        msg += err.getMessage() + '<br/>';
+                                    });
+                                    Ext.Msg.alert('ERROR', msg);
+                                } else {
+                                    Ext.Msg.alert('SUCCESS', 'Looks like the model is valid');
+                                } // if
+                            } // handler
+                        }] // items (titlebar)
+                    }] // items (container)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
