@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Disabling buttons on an Ext.MessageBox control in Sencha Touch 2</title>
+    <!-- Ext.Msg.buttons.disabled -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.create('Ext.Container', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Show alert',
+                            handler: function () {
+                                var msg = Ext.Msg.show({
+                                    title: 'Ext.Msg.show()',
+                                    message: 'This dialog\'s button will be disabled for 4 seconds.',
+                                    buttons: [{
+                                        id: 'alertCancelBtn',
+                                        disabled: true,
+                                        iconCls: 'user',
+                                        iconMask: true,
+                                        text: 'Sure, why not',
+                                        ui: 'round decline'
+                                    }] // buttons
+                                }); // show()
+                                
+                                setTimeout(function () {
+                                    Ext.getCmp('alertCancelBtn').setDisabled(false);
+                                }, 4000 /* ms */); // setTimeout()
+                            } // handler
+                        }] // items
+                    }] // items (toolbar)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
