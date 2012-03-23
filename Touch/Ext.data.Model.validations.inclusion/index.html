@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Populating an Ext.form.Panel container from a model using Sencha Touch 2</title>
+    <!-- Ext.data.Model.validations.inclusion -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.define('TeamModel', {
+                    extend: 'Ext.data.Model',
+                    config: {
+                        fields: [{
+                            name: 'teamName',
+                            type: 'string'
+                        }, {
+                            name: 'division',
+                            type: 'string'
+                        }, {
+                            name: 'league',
+                            type: 'string'
+                        }], // fields
+                        validations: [{
+                            field: 'teamName',
+                            type: 'presence',
+                            message: 'Team Name is required.'
+                        }, {
+                            field: 'division',
+                            type: 'presence',
+                            message: 'Division is required.'
+                        }, {
+                            field: 'division',
+                            type: 'inclusion',
+                            list: ['East', 'Central', 'West'],
+                            message: 'Division must be one of: East, Central, West'
+                        }, {
+                            field: 'league',
+                            type: 'presence',
+                            message: 'League is required.'
+                        }, {
+                            field: 'league',
+                            type: 'inclusion',
+                            list: ['AL', 'NL'],
+                            message: 'League must be one of: AL, NL'
+                        }] // validations
+                    } // config
+                }); // define()
+                
+                var form = Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'toolbar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Validate form',
+                            handler: function () {
+                                var teamModel = Ext.create('TeamModel'),
+                                    errors, errorMessage = '';
+                                
+                                form.updateRecord(teamModel);
+                                errors = teamModel.validate();
+                                
+                                if (!errors.isValid()) {
+                                    errors.each(function (err) {
+                                        errorMessage += err.getMessage() + '<br/>';
+                                    }); // each()
+                                    Ext.Msg.alert('Form is invalid!', errorMessage);
+                                } else {
+                                    Ext.Msg.alert('Form is valid!', '');
+                                } // if
+                            } // handler
+                        }] // items (toolbar)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'textfield',
+                            name: 'teamName',
+                            label: 'Team Name:'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'division',
+                            label: 'Division:',
+                            placeHolder: 'East | Central | West'
+                        }, {
+                            xtype: 'textfield',
+                            name: 'league',
+                            label: 'League:',
+                            placeHolder: 'AL | NL'
+                        }] // items (fieldset)
+                    }] // items (panel)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
