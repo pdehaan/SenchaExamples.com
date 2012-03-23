@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link href="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/resources/css/sencha-touch.css" rel="stylesheet" type="text/css" />
+    <title>Validating string lengths on an Ext.data.Model object using Sencha Touch 2</title>
+    <!-- Ext.data.Model.validations.min -->
+</head>
+<body>
+    
+    <script src="http://extjs.cachefly.net/touch/sencha-touch-2.0.0/sencha-touch-all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        Ext.application({
+            launch: function () {
+                Ext.define('UserModel', {
+                    extend: 'Ext.data.Model',
+                    config: {
+                        fields: [{
+                            name: 'username',
+                            type: 'string'
+                        }], // fields
+                        validations: [{
+                            field: 'username',
+                            type: 'presence',
+                            message: 'Username is required.'
+                        }, {
+                            field: 'username',
+                            type: 'length',
+                            min: 6,
+                            max: 12,
+                            message: 'Username must be between 6 and 12 characters.'
+                        }] // validations
+                    } // config
+                }); // define()
+                
+                var form = Ext.create('Ext.form.Panel', {
+                    fullscreen: true,
+                    items: [{
+                        xtype: 'titlebar',
+                        docked: 'top',
+                        items: [{
+                            text: 'Validate form',
+                            handler: function () {
+                                var values = form.getValues(),
+                                    usr = Ext.create('UserModel', {
+                                        username: values.usernameField
+                                    }),
+                                    errs = usr.validate(),
+                                    msg = '';
+                                
+                                if (!errs.isValid()) {
+                                    errs.each(function (err) {
+                                        msg += err.getMessage() + '<br/>';
+                                    }); // each()
+                                    Ext.Msg.alert('ERROR', msg);
+                                } else {
+                                    Ext.Msg.alert('SUCCESS', 'Looks like the model is valid!');
+                                } // if
+                            } // handler
+                        }] // items (titlebar)
+                    }, {
+                        xtype: 'fieldset',
+                        items: [{
+                            xtype: 'textfield',
+                            name: 'usernameField',
+                            label: 'Username:',
+                            required: true
+                        }]
+                    }] // items (container)
+                }); // create()
+            } // launch
+        }); // application()
+    </script>
+    
+</body>
+</html>
