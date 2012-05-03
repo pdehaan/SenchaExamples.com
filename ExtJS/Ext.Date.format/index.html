@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Formatting dates using Ext JS</title>
+    <link rel="stylesheet" href="http://cdn.sencha.io/try/extjs/4.1.0/resources/css/ext-all.css"/>
+    <script type="text/javascript" src="http://cdn.sencha.io/try/extjs/4.1.0/ext-all-debug.js"></script>
+    <script type="text/javascript">
+        Ext.onReady(function () {
+            "use strict";
+            
+            var now = new Date(),
+                format,
+                pattern,
+                obj = {},
+                items = [];
+            
+            Ext.Date.patterns = {
+                ISO8601Long: "Y-m-d H:i:s",
+                ISO8601Short: "Y-m-d",
+                ShortDate: "n/j/Y",
+                LongDate: "l, F d, Y",
+                FullDateTime: "l, F d, Y g:i:s A",
+                MonthDay: "F d",
+                ShortTime: "g:i A",
+                LongTime: "g:i:s A",
+                SortableDateTime: "Y-m-d\\TH:i:s",
+                UniversalSortableDateTime: "Y-m-d H:i:sO",
+                YearMonth: "F, Y"
+            };
+            
+            for (pattern in Ext.Date.patterns) {
+                format = Ext.Date.patterns[pattern];
+                obj = {
+                    "pattern": pattern,
+                    "format": format,
+                    "output": Ext.Date.format(now, format)
+                };
+                items.push(obj);
+            }
+            
+            Ext.create("Ext.data.Store", {
+                storeId: "dateStore",
+                fields: ["pattern", "format", "output"],
+                data: items,
+                proxy: {
+                    type: "memory",
+                    reader: {
+                        type: "json"
+                    }
+                }
+            });
+            
+            Ext.create("Ext.grid.Panel", {
+                store: Ext.data.StoreManager.lookup("dateStore"),
+                columns: [{
+                    header: "pattern",
+                    dataIndex: "pattern"
+                }, {
+                    header: "format",
+                    dataIndex: "format"
+                }, {
+                    header: "output",
+                    dataIndex: "output",
+                    flex: 1
+                }],
+                width: 400,
+                renderTo: Ext.getBody()
+            });
+        });
+    </script>
+</head>
+<body>
+</body>
+</html>
